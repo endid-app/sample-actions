@@ -1,4 +1,4 @@
-name: "Tests"
+name: "Failing Test"
 
 on:
   push:
