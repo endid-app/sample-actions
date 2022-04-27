@@ -6,7 +6,7 @@ on:
   
 jobs:
   test1:
-    name: 'Test Failure'
+    name: 'Test Failure dev'
     runs-on: ubuntu-latest
 
     steps:
