@@ -1,5 +1,5 @@
 
-name: "Tests"
+name: "Specify"
 
 on:
   workflow_dispatch:
@@ -11,8 +11,6 @@ on:
         options: 
         - success
         - failure
-      message:
-        required: true
   
 jobs:
   test1:
