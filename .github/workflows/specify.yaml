@@ -4,7 +4,7 @@ name: "Specify"
 on:
   workflow_dispatch:
     inputs:
-      name:
+      outcome:
         type: choice
         description: Success or Failure
         default: 'success'
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: 'Failure'
-        if: ${{ github.event.inputs.tags == 'failure' }}
+        if: ${{ github.event.inputs.outcome == 'failure' }}
         run: |
            failureplease
            
