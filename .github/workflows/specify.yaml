@@ -1,0 +1,31 @@
+
+name: "Tests"
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Success or Failure
+        default: 'success'
+        options: 
+        - success
+        - failure
+      message:
+        required: true
+  
+jobs:
+  test1:
+    name: 'Test 1'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Failure'
+        if: ${{ github.event.inputs.tags == 'failure' }}
+        run: |
+           failureplease
+           
+
+      - name: 'Success'
+        run: |
+           echo 'ok'
