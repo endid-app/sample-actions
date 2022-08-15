@@ -1,0 +1,54 @@
+
+name: "Specify Skip"
+on:
+  workflow_dispatch:
+    inputs:
+      outcome1:
+        type: choice
+        description: Success or Failure 1
+        default: 'success'
+        options: 
+        - success
+        - failure
+        - skip
+      outcome2:
+        type: choice
+        description: Success or Failure 2
+        default: 'success'
+        options:
+        - success
+        - failure
+        - skip
+  
+jobs:
+  test1:
+    name: 'Test 1'
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.outcome1 != 'skip' }}
+
+    steps:
+      - name: 'Failure'
+        if: ${{ github.event.inputs.outcome1 == 'failure' }}
+        run: |
+           failureplease
+           
+
+      - name: 'Success'
+        run: |
+           echo 'ok'
+
+  test2:
+    name: 'Test 2'
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.outcome2 != 'skip' }}
+
+    steps:
+      - name: 'Failure'
+        if: ${{ github.event.inputs.outcome2 == 'failure' }}
+        run: |
+           failureplease
+
+
+      - name: 'Success'
+        run: |
+           echo 'ok'
