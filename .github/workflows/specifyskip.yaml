@@ -1,6 +1,5 @@
 
-name: "Specify"
-
+name: "Specify Skip"
 on:
   workflow_dispatch:
     inputs:
