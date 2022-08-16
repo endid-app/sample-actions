@@ -24,7 +24,7 @@ jobs:
         if: ${{ github.event.inputs.outcome == 'cancel' }}
         uses: vishnudxb/cancel-workflow@v1.2
         with:
-          repo: ${GITHUB_REPOSITORY}
+          repo: ${{ github.repository }}
           workflow_id: ${{ github.run_id }}
           access_token: ${{ github.token }}
 
