@@ -23,8 +23,9 @@ jobs:
       - name: 'Cancel'
         if: ${{ github.event.inputs.outcome == 'cancel' }}
         uses: vishnudxb/cancel-workflow@v1.2
-        workflow_id: ${{ github.run_id }}
-        access_token: ${{ github.token }}
+        with:
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ github.token }}
 
       - name: 'Failure'
         if: ${{ github.event.inputs.outcome == 'failure' }}
