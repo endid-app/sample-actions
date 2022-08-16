@@ -1,7 +1,6 @@
 name: "Failing Test"
 
 on:
-  push:
   workflow_dispatch:
   
 jobs:

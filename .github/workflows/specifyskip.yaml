@@ -1,5 +1,5 @@
 
-name: "Specify Skip"
+name: "Specify Skip or Cancel"
 on:
   workflow_dispatch:
     inputs:
