@@ -1,5 +1,5 @@
 
-name: "Specify Skip or Cancel"
+name: "Specify Skip or Cancel Delay"
 on:
   workflow_dispatch:
     inputs:
@@ -12,6 +12,10 @@ on:
         - failure
         - cancel
         - skip
+      sleep:
+        type: string
+        description: Sleep in Seconds
+        default: 0
   
 jobs:
   test1:
@@ -20,6 +24,10 @@ jobs:
     if: ${{ github.event.inputs.outcome != 'skip' }}
 
     steps:
+      - name: 'Sleep'
+        run: |
+           sleep ${{ github.event.inputs.sleep }}
+
       - name: 'Cancel'
         if: ${{ github.event.inputs.outcome == 'cancel' }}
         uses: vishnudxb/cancel-workflow@v1.2
