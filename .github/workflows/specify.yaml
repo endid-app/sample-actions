@@ -1,5 +1,5 @@
 
-name: "Specify"
+name: "Process Everything"
 
 on:
   workflow_dispatch:
